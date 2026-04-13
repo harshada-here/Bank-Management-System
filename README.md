@@ -41,7 +41,7 @@ This separation keeps static data lightweight while allowing the transaction log
 
 ### On Mac/Linux:
 ```bash
-gcc bank_management.c -o bank
+gcc bank.c -o bank
 ./bank
 ```
 
@@ -52,7 +52,6 @@ bank.exe
 ```
 
 ## Code Structure
-
 - `initializeFile()` - Creates CSV files with headers if they don't exist
 - `generateAccountNumber()` - Auto-generates unique account numbers
 - `createAccount()` - Handles new account creation
@@ -64,14 +63,12 @@ bank.exe
 - `viewTransactions()` - Shows complete transaction history
 
 ## Known Limitations
-
 - **PIN Storage**: PINs are stored in plaintext. In production, they should be hashed.
 - **Float for Currency**: Uses `float` for monetary values, which can have precision issues. Should use integers (storing paise/cents) in real systems.
 - **Account Number Generation**: Based on line count, can create duplicates if records are manually deleted.
 - **Atomicity**: Transfer operations are not atomic. If the program crashes mid-transfer, money could be lost.
 
 ## Future Enhancements
-
 - Encrypt PIN storage using hashing algorithms
 - Use integers for currency (store values in paise)
 - Add timestamp to transactions
@@ -79,14 +76,18 @@ bank.exe
 - Add transaction rollback mechanism
 - Support for multiple account types (Fixed Deposit, etc.)
 
-## Team
+## Learning Outcomes
+- Gained hands-on experience with file handling using CSV in C
+- Implemented structured programming concepts using functions and modular design
+- Learned cross-platform input handling (Windows vs Mac/Linux)
+- Understood basic banking operations and transaction flow logic
+- Explored limitations of simple systems and importance of data security
 
-- **Person 1** - Architecture, File System, Platform Compatibility
-- **Person 2** - Account Creation, Login, PIN Masking
-- **Person 3** - Transfer Money Functionality
-- **Person 4** - Balance Check, Transaction History
-- **Person 5** - Deposit & Withdraw Operations
+## Challenges Faced
+- Handling file operations safely across multiple transactions
+- Implementing masked PIN input for different operating systems
+- Ensuring data consistency during transfers
+- Managing input validation for edge cases
 
 ## License
-
 This project is developed as an educational mini-project for learning C programming and file handling concepts.
